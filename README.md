@@ -65,26 +65,19 @@ src/main/resources/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/petshop.git
+git clone https://github.com/cotonho/Pet-shop.git
 cd petshop
 ```
 
-### 2. Configure as variáveis de ambiente
-Defina as credenciais do MySQL:
+### 2. Configure application.properties
+Em Pet-shop\src\main\resources\ a um arquivo chamado "application.properties.example".
+Nele altere as suas credenciais do Mysql e o salve como "application.properties".
 
-Windows (PowerShell):
+
+E no seu MySQL:
 ```bash
-$env:DB_URL="jdbc:mysql://localhost:3306/petshop?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=America/Sao_Paulo"
-$env:DB_USER="seu_usuario"
-$env:DB_PASSWORD="sua_senha"
+CREATE DATABASE petshop;
 ```
-Linux/macOS:
-```bash
-export DB_URL="jdbc:mysql://localhost:3306/petshop?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=America/Sao_Paulo"
-export DB_USER="seu_usuario"
-export DB_PASSWORD="sua_senha"
-```
-O banco de dados petshop será criado automaticamente se não existir.
 
 ### 3. Execute a aplicação
 ```bash
