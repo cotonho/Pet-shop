@@ -10,22 +10,22 @@ A aplicação aplica os pilares de **POO** (encapsulamento, herança e polimorfi
 
 ---
 
-## 📋 Funcionalidades
+## Funcionalidades
 
-- ✅ **Cadastro de proprietários** (nome, telefone, email, endereço)
-- ✅ **Cadastro de animais** (nome, espécie, raça, idade, sexo, peso e foto – opcional via URL)
-- ✅ **Cadastro de serviços** com **tipos polimórficos** (Banho, Veterinário, Hospedagem) e preço base
-- ✅ **Lançamento de serviços** prestados com **cálculo automático de valor** por meio de polimorfismo
-- ✅ **Histórico por animal** com filtros combinados: período + tipo de serviço
-- ✅ **Relatórios**:
+- **Cadastro de proprietários** (nome, telefone, email, endereço)
+- **Cadastro de animais** (nome, espécie, raça, idade, sexo, peso e foto – opcional via URL)
+- **Cadastro de serviços** com **tipos polimórficos** (Banho, Veterinário, Hospedagem) e preço base
+- **Lançamento de serviços** prestados com **cálculo automático de valor** por meio de polimorfismo
+- **Histórico por animal** com filtros combinados: período + tipo de serviço
+- **Relatórios**:
   - Total por serviço e por data (agrupamento diário)
   - Dados do cliente com seus animais
-- ✅ **Segurança** das credenciais do banco via variáveis de ambiente
-- ✅ **Testes unitários e de integração** (JUnit 5 + Mockito + H2)
+- **Segurança** das credenciais do banco via variáveis de ambiente
+- **Testes unitários e de integração** (JUnit 5 + Mockito + H2)
 
 ---
 
-## 🧱 Tecnologias
+## Tecnologias
 
 | Camada          | Tecnologia                                                                           |
 |-----------------|--------------------------------------------------------------------------------------|
@@ -37,7 +37,7 @@ A aplicação aplica os pilares de **POO** (encapsulamento, herança e polimorfi
 
 ---
 
-## 📁 Estrutura de Pacotes
+## Estrutura de Pacotes
 
 src/main/java/petshop/
 ├── model/ # Entidades JPA (Proprietario, Animal, Servico, Lancamento, Pessoa)
@@ -55,7 +55,7 @@ src/main/resources/
 
 ---
 
-## 🚀 Como executar o projeto
+## Como executar o projeto
 
 ### Pré‑requisitos
 
@@ -68,30 +68,33 @@ src/main/resources/
 ```bash
 git clone https://github.com/seu-usuario/petshop.git
 cd petshop
+```
 
-2. Configure as variáveis de ambiente
+### 2. Configure as variáveis de ambiente
 Defina as credenciais do MySQL:
 
-Windows 
-(PowerShell):$env:DB_URL="jdbc:mysql://localhost:3306/petshop?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=America/Sao_Paulo"
+Windows (PowerShell):
+```bash
+$env:DB_URL="jdbc:mysql://localhost:3306/petshop?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=America/Sao_Paulo"
 $env:DB_USER="seu_usuario"
 $env:DB_PASSWORD="sua_senha"
+```
 Linux/macOS:
-
+```bash
 export DB_URL="jdbc:mysql://localhost:3306/petshop?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=America/Sao_Paulo"
 export DB_USER="seu_usuario"
 export DB_PASSWORD="sua_senha"
-
+```
 O banco de dados petshop será criado automaticamente se não existir.
 
-3. Execute a aplicação
-
+### 3. Execute a aplicação
+```bash
 ./mvnw spring-boot:run     # Linux / macOS
 mvnw.cmd spring-boot:run   # Windows
-
+```
 Acesse a interface em: http://localhost:8080
 
-🧠 Aplicação dos conceitos de POO
+## Aplicação dos conceitos de POO
 Encapsulamento: todos os atributos são privados, acessados via getters/setters (Lombok). Validações com Bean Validation.
 
 Herança:
@@ -102,7 +105,7 @@ Servico (abstrata, @Inheritance SINGLE_TABLE) → ServicoBanho, ServicoVeterinar
 
 Polimorfismo: método abstrato Servico.calcularValor(Animal) implementado de forma distinta em cada subclasse. O LancamentoService chama esse método sem conhecer o tipo concreto, garantindo o cálculo automático do valor com regras específicas (ex.: Banho mais caro para animais pesados, Veterinário acresce taxa fixa).
 
-👨‍💻 Autor
+## Autor
 Marco Antônio da Silva Milagres
 Graduando em Ciência da Computação – UNIPAC Barbacena
 📧 231-001036@aluno.unipac.br
