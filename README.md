@@ -3,7 +3,6 @@
 [![Java](https://img.shields.io/badge/Java-21-blue.svg)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange.svg)](https://dev.mysql.com/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Sistema completo para gerenciamento de um pet shop, desenvolvido como trabalho da disciplina **Programação Orientada a Objetos** do curso de Ciência da Computação – UNIPAC Barbacena.  
 A aplicação aplica os pilares de **POO** (encapsulamento, herança e polimorfismo) e segue a arquitetura **MVC**, utilizando **Spring Boot**, **Spring Data JPA** e **MySQL**.
