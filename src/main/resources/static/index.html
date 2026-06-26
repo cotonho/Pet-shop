@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Shop</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>🐾 Sistema Pet Shop</header>
+
+<nav>
+    <button class="active" data-section="proprietarios">Proprietários</button>
+    <button data-section="animais">Animais</button>
+    <button data-section="servicos">Serviços</button>
+    <button data-section="lancamentos">Lançamentos</button>
+    <button data-section="historico">Histórico</button>
+    <button data-section="relatorio">Relatório</button>
+</nav>
+
+<main>
+    <!-- PROPRIETÁRIOS -->
+    <section id="proprietarios" class="section active">
+        <h2>Proprietários</h2>
+        <div class="card">
+            <div id="msg-prop" class="msg"></div>
+            <div class="form-grid">
+                <div><label>Nome *</label><input id="prop-nome" placeholder="Nome completo" /></div>
+                <div><label>Email</label><input id="prop-email" type="email" placeholder="email@exemplo.com" /></div>
+                <div><label>Telefone</label><input id="prop-telefone" placeholder="(31) 99999-9999" /></div>
+                <div><label>Endereço</label><input id="prop-endereco" placeholder="Rua, número, bairro" /></div>
+            </div>
+            <button class="btn btn-green" onclick="salvarProprietario()">Salvar Proprietário</button>
+        </div>
+        <div class="card">
+            <table id="tabela-proprietarios">
+                <thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Telefone</th><th>Ação</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ANIMAIS -->
+    <section id="animais" class="section">
+        <h2>Animais</h2>
+        <div class="card">
+            <div id="msg-animal" class="msg"></div>
+            <div class="form-grid three">
+                <div><label>Nome *</label><input id="animal-nome" placeholder="Nome do animal" /></div>
+                <div><label>Espécie</label><input id="animal-especie" placeholder="Cão, Gato..." /></div>
+                <div><label>Raça</label><input id="animal-raca" placeholder="Raça" /></div>
+                <div><label>Idade</label><input id="animal-idade" type="number" placeholder="Anos" /></div>
+                <div><label>Sexo</label>
+                    <select id="animal-sexo"><option value="">Selecione</option><option value="M">Macho</option><option value="F">Fêmea</option></select>
+                </div>
+                <div><label>Peso (kg)</label><input id="animal-peso" type="number" step="0.1" placeholder="Ex: 4.5" /></div>
+            </div>
+            <div class="form-grid full" style="margin-bottom:16px">
+                <div><label>Foto (URL)</label><input id="animal-foto" type="url" placeholder="https://..." /></div>
+                <div><label>Proprietário *</label><select id="animal-proprietario"></select></div>
+            </div>
+            <button class="btn btn-green" onclick="salvarAnimal()">Salvar Animal</button>
+        </div>
+        <div class="card">
+            <table id="tabela-animais">
+                <thead><tr><th>ID</th><th>Nome</th><th>Espécie</th><th>Raça</th><th>Proprietário</th><th>Ação</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+        <h2>Serviços</h2>
+        <div class="card">
+            <div id="msg-servico" class="msg"></div>
+            <div class="form-grid three">
+                <div><label>Nome *</label><input id="servico-nome" placeholder="Ex: Banho e Tosa" /></div>
+                <div><label>Preço (R$) *</label><input id="servico-preco" type="number" step="0.01" placeholder="0.00" /></div>
+                <div><label>Descrição</label><input id="servico-descricao" placeholder="Descrição do serviço" /></div>
+                <div>
+                    <label>Tipo *</label>
+                    <select id="servico-tipo">
+                        <option value="">Selecione</option>
+                        <option value="BANHO">Banho</option>
+                        <option value="VETERINARIO">Veterinário</option>
+                        <option value="HOSPEDAGEM">Hospedagem</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-green" onclick="salvarServico()">Salvar Serviço</button>
+        </div>
+        <div class="card">
+            <table id="tabela-servicos">
+                <thead><tr><th>ID</th><th>Nome</th><th>Tipo</th><th>Descrição</th><th>Preço</th><th>Ação</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- LANÇAMENTOS -->
+    <section id="lancamentos" class="section">
+        <h2>Lançamentos de Serviços</h2>
+        <div class="card">
+            <div id="msg-lanc" class="msg"></div>
+            <div class="form-grid">
+                <div><label>Animal *</label><select id="lanc-animal"></select></div>
+                <div><label>Serviço *</label><select id="lanc-servico"></select></div>
+                <div><label>Data *</label><input id="lanc-data" type="date" /></div>
+                <div><label>Valor (R$)</label><input id="lanc-valor" type="number" step="0.01" placeholder="Calculado automático" readonly /></div>
+            </div>
+            <div class="form-grid full" style="margin-bottom:16px">
+                <div><label>Observações</label><textarea id="lanc-obs" rows="2" placeholder="Observações opcionais..."></textarea></div>
+            </div>
+            <button class="btn btn-green" onclick="salvarLancamento()">Registrar Serviço</button>
+        </div>
+        <div class="card">
+            <table id="tabela-lancamentos">
+                <thead><tr><th>ID</th><th>Data</th><th>Animal</th><th>Serviço</th><th>Valor</th><th>Observações</th><th>Ação</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- HISTÓRICO POR ANIMAL -->
+    <section id="historico" class="section">
+        <h2>Histórico de Serviços por Animal</h2>
+        <div class="card">
+            <div class="form-grid three">
+                <div><label>Animal *</label><select id="hist-animal"></select></div>
+                <div><label>Data início</label><input id="hist-inicio" type="date" /></div>
+                <div><label>Data fim</label><input id="hist-fim" type="date" /></div>
+                <div><label>Tipo de serviço</label><select id="hist-servico"><option value="">Todos</option></select></div>
+            </div>
+            <button class="btn btn-blue" onclick="buscarHistorico()">Buscar Histórico</button>
+        </div>
+        <div id="historico-resultado"></div>
+    </section>
+
+    <!-- RELATÓRIO -->
+    <section id="relatorio" class="section">
+        <h2>Relatório por Cliente</h2>
+        <div class="card">
+            <div class="form-grid three">
+                <div><label>Proprietário *</label><select id="rel-proprietario"></select></div>
+                <div><label>Data início *</label><input id="rel-inicio" type="date" /></div>
+                <div><label>Data fim *</label><input id="rel-fim" type="date" /></div>
+            </div>
+            <button class="btn btn-blue" onclick="gerarRelatorio()">Gerar Relatório</button>
+        </div>
+        <div id="relatorio-resultado"></div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
